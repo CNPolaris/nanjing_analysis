@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/5/29 9:23
-# @FileName: __init__.py.py
+# @Time    : 2020/5/30 15:29
+# @FileName: html_output.py
 # @Author  : CNTian
 # @GitHub  ：https://github.com/CNPolaris
 # @Email   : 1875091912@qq.com
 
 """
-爬虫程序的主模块
+将采集到的数据集，进行写出
 """
