@@ -58,6 +58,22 @@ class data_visualization():
         plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\南京二手房单位房价与建筑面积散点图.png")
         plt.show()
 
+    # 生成单位房价与地区箱线图
+    def box_plot(self):
+        box_area=self.file_text["unitPriceValue"].groupby(self.file_text["areaName"])
+        flag=True
+        box_data=pd.DataFrame(list(range(21000)),columns=["start"])
+        for name, group in box_area:
+            box_data[name] = group
+        del box_data["start"]
+
+        fig=plt.figure(figsize=(12,7))
+        ax=fig.add_subplot(111)
+        ax.set_ylabel("单价(元/m2)", fontsize=14)
+        ax.set_title("南京各区域二手房单价箱线图", fontsize=18)
+        box_data.plot(kind="box", fontsize=12, sym='r+', grid=True, ax=ax, yticks=[20000, 30000, 40000, 50000,60000,70000,80000,90000,100000])
+        plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\南京各区域二手房单价箱线图.png")
+        plt.show()
     # 南京市各区二手房房源数量直方图
     def second_count(self):
         # 按照区域进行分组
@@ -171,3 +187,4 @@ if __name__ == '__main__':
     # visualization.second_aver_area()
     # visualization.top_value_20()
     # visualization.home_count_top()
+    visualization.box_plot()
