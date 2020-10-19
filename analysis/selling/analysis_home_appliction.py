@@ -16,7 +16,7 @@ class data_visualization():
     # 构造函数
     def __init__(self):
         # 数据集位置
-        self.filename = "/data/secondhome_clean.csv"
+        self.filename = "../../data/selling/secondhome_clean.csv"
         self.names = [
             "id", "communityName", "areaName", "total", "unitPriceValue",
             "fwhx", "szlc", "jzmj", "hxjg", "tnmj",
