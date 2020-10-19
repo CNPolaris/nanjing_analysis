@@ -16,6 +16,24 @@ import pandas as pd
 import csv
 
 
+def hotmap_data():
+    map_file_path = "E:\GitHub\\nanjing_analysis\data\map_point.js"
+    map_file = open(map_file_path, 'w')
+    with open(r"E:\GitHub\\nanjing_analysis\data\latlng.csv", 'r', encoding='utf-8', errors='ignore') as csvfile:
+        reader = csv.reader(csvfile)
+        for line in reader:
+            # 忽略第一行的变量名称
+            if reader.line_num == 1:
+                continue
+            # line是个list，取得所有需要的值
+            id == line[0].strip()  # 第一列是id
+            lat = line[2]  # 第三列是纬度
+            lng = line[3]  # 第四列是经度
+            str_temp = '{"lat":' + str(lat) + ',"lng":' + str(lng) + ',"count":' + str(id) + '},'
+            map_file.write(str_temp)  # 写入文档
+    map_file.close()
+
+
 class hot_map():
     def __init__(self):
         self.user_agent = ["Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0",
@@ -97,22 +115,6 @@ class hot_map():
         frame_test.to_csv("E:\GitHub\\nanjing_analysis\data\latlng.csv")
 
     # 将坐标位置转换成js格式
-    def hotmap_data(self):
-        map_file_path = "E:\GitHub\\nanjing_analysis\data\map_point.js"
-        map_file = open(map_file_path, 'w')
-        with open(r"E:\GitHub\\nanjing_analysis\data\latlng.csv", 'r', encoding='utf-8', errors='ignore') as csvfile:
-            reader = csv.reader(csvfile)
-            for line in reader:
-                # 忽略第一行的变量名称
-                if reader.line_num == 1:
-                    continue
-                # line是个list，取得所有需要的值
-                id == line[0].strip()  # 第一列是id
-                lat = line[2]  # 第三列是纬度
-                lng = line[3]  # 第四列是经度
-                str_temp = '{"lat":' + str(lat) + ',"lng":' + str(lng) + ',"count":' + str(id) + '},'
-                map_file.write(str_temp)  # 写入文档
-        map_file.close()
 
     # 数据整理
     def data_Integration(self):
@@ -187,6 +189,7 @@ class hot_map():
                 str_temp = '{"lng":' + str(lng) + ',"lat":' + str(lat) + ',"count":' + str(price) + '},'
                 file_out.write(str_temp)
                 file_out.write("\n")
+
 
 if __name__ == '__main__':
     map = hot_map()

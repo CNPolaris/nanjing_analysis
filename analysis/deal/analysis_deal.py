@@ -14,7 +14,7 @@ class data_visualization():
     # 构造函数
     def __init__(self):
         # 数据集位置
-        self.filename = "E:\GitHub\\nanjing_analysis\\data\\deal\\secondhome_clean.csv"
+        self.filename = "..\\..\\data\\deal\\secondhome_clean.csv"
         self.names = [
             "id", "communityName", "areaName", "time", "total", "unitPriceValue",
             "fwhx", "szlc", "jzmj", "hxjg", "tnmj",
@@ -40,7 +40,7 @@ class data_visualization():
         plt.plot(data2012)
         plt.grid(True, linestyle='--', alpha=0.5, marker="o")
         ax.set_ylabel("总价(元)", fontsize=14)
-        plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\deal\\2020年南京市二手房成交价格走势.png")
+        plt.savefig("..\\..\\data_picture\\deal\\2020年南京市二手房成交价格走势.png")
         plt.show()
 
     # 2012-2020年间南京市二手房平均成交价与平均单位房价
@@ -85,8 +85,9 @@ class data_visualization():
         ax3.set_ylabel("金额(元)", fontsize=12)
         for a, b in zip(x_list, total_list):
             ax3.text(a, b, b, ha='center', va='bottom', fontsize=10)
-        #plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\deal\\2012-2020年南京市二手房成交数据分析.png")
-        #plt.show()
+        plt.savefig("..\\..\\data_picture\\deal\\2012-2020年南京市二手房成交数据分析.png")
+        plt.show()
+
 
 if __name__ == '__main__':
     visualization = data_visualization()

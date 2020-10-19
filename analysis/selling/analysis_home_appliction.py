@@ -37,7 +37,7 @@ class data_visualization():
         plt.title("南京市二手房房源建筑类型", fontsize=18)
         plt.legend()
         plt.ylabel("")
-        plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\南京市二手房房源建筑类型饼图.png")
+        plt.savefig("..\\..\\data_picture\\南京市二手房房源建筑类型饼图.png")
         plt.show()
 
     # 南京市二手房房源房屋朝向饼图
@@ -55,7 +55,7 @@ class data_visualization():
         plt.title("南京市二手房房源房屋朝向", fontsize=18)
         plt.legend()
         plt.ylabel("")
-        plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\南京市二手房房源房屋朝向饼图.png")
+        plt.savefig("..\\..\\data_picture\\南京市二手房房源房屋朝向饼图.png")
         plt.show()
 
     # 南京市二手房房源房屋户型结构饼形图
@@ -69,7 +69,7 @@ class data_visualization():
         plt.title("南京市二手房房源房屋户型结构", fontsize=18)
         # plt.legend()
         plt.ylabel("")
-        plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\南京市二手房房源房屋户型结构饼形图.png")
+        plt.savefig("..\\..\\data_picture\\南京市二手房房源房屋户型结构饼形图.png")
         plt.show()
 
     # 相关图
@@ -89,7 +89,7 @@ class data_visualization():
         plt.yticks(fontsize=12)
         plt.xticks(fontsize=12)
         plt.title("南京市二手房信息相关图", fontsize=18)
-        plt.savefig("E:\GitHub\\nanjing_analysis\\data_picture\\南京市二手房信息相关图.png")
+        plt.savefig("..\\..\\data_picture\\南京市二手房信息相关图.png")
 
         plt.show()
 

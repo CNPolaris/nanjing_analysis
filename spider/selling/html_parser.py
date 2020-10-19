@@ -13,11 +13,11 @@ from log import MyLog
 解析html网页，获得所需要的数据，并调用输出模块，将数据输出存储
 """
 
+
 class HtmlParser:
     def __init__(self):
         # 写入日志，标明是解析html
         self.log = MyLog("html_parser", "logs")
-
 
     def get_secondhandhome_data(self, html_cont, id):
         # 获取二手房页面详细数据
@@ -71,7 +71,7 @@ class HtmlParser:
 
         counta = 12
         for a_child in bsObj.find("div", {"class": "introContent"}).find("div", {"class": "base"}).find("div", {
-        "class": "content"}).ul.findAll("li"):
+            "class": "content"}).ul.findAll("li"):
             # print(child1)
             [s.extract() for s in a_child("span")]
             secondhandhouse.append(a_child.get_text())
@@ -83,7 +83,7 @@ class HtmlParser:
 
         countb = 8
         for b_child in bsObj.find("div", {"class": "introContent"}).find("div", {"class": "transaction"}).find("div", {
-        "class": "content"}).ul.findAll("li"):
+            "class": "content"}).ul.findAll("li"):
             information = b_child.span.next_sibling.next_sibling.get_text()
             secondhandhouse.append(information)
             countb = countb - 1
@@ -95,7 +95,6 @@ class HtmlParser:
         self.log.logger.info("页面解析(detail)：页面解析成功！")
         print("页面解析(detail)：页面解析成功！")
         return secondhandhouse
-
 
     def get_secondhandhome_urls(self, html_cont):
         """获取二手房页面的链接"""

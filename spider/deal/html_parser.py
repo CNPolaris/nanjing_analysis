@@ -13,11 +13,11 @@ from log import MyLog
 解析html网页，获得所需要的数据，并调用输出模块，将数据输出存储
 """
 
+
 class HtmlParser:
     def __init__(self):
         # 写入日志，标明是解析html
         self.log = MyLog("html_parser", "logs")
-
 
     def get_secondhandhome_data(self, html_cont, id):
         # 获取二手房页面详细数据
@@ -33,7 +33,7 @@ class HtmlParser:
         # 地区名
         areaName = "null"
         # 成交时间
-        time="null"
+        time = "null"
         # 建筑面积
         total = "null"
         # 单位房价
@@ -43,7 +43,7 @@ class HtmlParser:
         tag_com = bsObj.find("div", {"class": "wrapper"})
         if tag_com is not None:
             temp = tag_com.get_text()
-            communityName=temp.split()[0]
+            communityName = temp.split()[0]
         else:
             self.log.logger.error("页面解析(detail)：找不到communityName标签！")
 
@@ -54,9 +54,9 @@ class HtmlParser:
         #     self.log.logger.error("页面解析(detail)：找不到areaName标签！")
 
         # 成交时间
-        tag_time=bsObj.find("div", {"class": "wrapper"}).find("span")
+        tag_time = bsObj.find("div", {"class": "wrapper"}).find("span")
         if tag_time is not None:
-            time=tag_time.get_text()
+            time = tag_time.get_text()
         else:
             self.log.logger.error("页面解析(detail)：找不到时间！")
         tag_total = bsObj.find("span", {"class": "dealTotalPrice"}).find("i")
@@ -81,7 +81,7 @@ class HtmlParser:
         print("第一部分")
         counta = 13
         for a_child in bsObj.find("div", {"class": "introContent"}).find("div", {"class": "base"}).find("div", {
-        "class": "content"}).ul.findAll("li"):
+            "class": "content"}).ul.findAll("li"):
             # print(child1)
             [s.extract() for s in a_child("span")]
             secondhandhouse.append(a_child.get_text())
@@ -93,7 +93,7 @@ class HtmlParser:
 
         countb = 6
         for b_child in bsObj.find("div", {"class": "introContent"}).find("div", {"class": "transaction"}).find("div", {
-        "class": "content"}).ul.findAll("li"):
+            "class": "content"}).ul.findAll("li"):
             [s.extract() for s in b_child("span")]
             secondhandhouse.append(b_child.get_text())
             countb = countb - 1
@@ -105,7 +105,6 @@ class HtmlParser:
         self.log.logger.info("页面解析(detail)：页面解析成功！")
         print("页面解析(detail)：页面解析成功！")
         return secondhandhouse
-
 
     def get_secondhandhome_urls(self, html_cont):
         """获取二手房页面的链接"""
@@ -121,10 +120,10 @@ class HtmlParser:
 
         if sellListContent is not None:
             for child in sellListContent.children:
-                #if child["class"][0] == "clear":
-                    ershoufang_urls.add(child.a["href"])
-                    self.log.logger.info(child.a["href"])
-                    # print(child.find("a",{"class":"img"})["href"])
+                # if child["class"][0] == "clear":
+                ershoufang_urls.add(child.a["href"])
+                self.log.logger.info(child.a["href"])
+                # print(child.find("a",{"class":"img"})["href"])
         else:
             self.log.logger.error("页面解析(page)：找不到listContent标签！")
 
